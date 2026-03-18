@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colors</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const select = document.querySelector('#color-select');
+            const hello = document.querySelector('#hello');
+
+            select.onchange = () => {
+                const color = select.options[select.selectedIndex].dataset.color;
+                hello.style.color = color;
+            };
+        });
+    </script>
+</head>
+<body>
+    <h1 id="hello">Hello, World!</h1>  
+    <label for="color-select">Choose a color:</label>
+    <select id="color-select" title="Select text color">
+        <option value="red" data-color="red">Red</option>
+        <option value="green" data-color="green">Green</option>
+        <option value="blue" data-color="blue">Blue</option>
+    </select>
+</body>
+</html>
