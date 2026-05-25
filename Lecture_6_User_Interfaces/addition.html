@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        input {
+            font-size: 1.5em;
+            padding: 5px;
+            margin-top: 10px;
+        }
+        p {
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+    </style>
+    <title>Addition</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script type="text/babel">
+        function App() {
+           const [state, setState] = React.useState({ 
+                num1: 5, 
+                num2: 10,
+                response: "",
+                score: 0
+            });
+
+            function inputKeyPress(event) {
+                if (event.key === 'Enter') {
+                    const sum = state.num1 + state.num2;
+                    if (parseInt(state.response) === sum) {
+                        alert('Correct!');
+                        setState({
+                            ...state,
+                            num1: Math.ceil(Math.random() * 100),
+                            num2: Math.ceil(Math.random() * 100),
+                            score: state.score + 1,
+                            response: ""
+                        });
+                    } else {
+                        alert('Incorrect, try again.');
+                    }
+                }
+            }
+            function updateResponse(event) {
+                setState({
+                    ...state,
+                    response: event.target.value 
+                });
+            }
+
+            return (
+                <div>
+                    <div>{state.num1} + {state.num2}</div>
+                    <input value = {state.response} onChange={updateResponse} onKeyPress={inputKeyPress}/>
+                    <p>Score: {state.score}</p>
+                </div>
+            );
+        }
+        ReactDOM.render(<App />, document.querySelector('#app'));
+    </script>
+</body>
+</html>
