@@ -54,7 +54,7 @@ Session handling strategies when using multiple servers:
 - Client-side sessions (cookies): avoid server-side storage but raise security and size concerns.
 
 Images:
-- Server request diagram: https://cs50.harvard.edu/web/notes/8/images/server0.png
+- Server request diagram: images/server0.png
 
 
 ## Autoscaling
@@ -72,8 +72,8 @@ Strategies:
 - Multi-primary (multi-master): all replicas accept writes — helps availability but introduces update/uniqueness/delete conflicts and complexity.
 
 Diagrams (CS50):
-- Single-primary: https://cs50.harvard.edu/web/notes/8/images/single_primary.png
-- Multi-primary: https://cs50.harvard.edu/web/notes/8/images/multi_primary.png
+- Single-primary: images/single_primary.png
+- Multi-primary: images/multi_primary.png
 
 
 ## Caching
@@ -90,7 +90,7 @@ Cache-Control: max-age=86400
 	- Template-fragment caching
 	- Low-level cache API
 
-Image: https://cs50.harvard.edu/web/notes/8/images/server_cache.png
+Image: images/server_cache.png
 
 
 ## Security
@@ -109,7 +109,7 @@ Example of a deceptive link HTML:
 <a href="https://cs50.harvard.edu/web/">https://www.google.com/</a>
 ```
 
-Image (phishing): https://cs50.harvard.edu/web/notes/8/images/phishing.gif
+Image (phishing): images/phishing.gif
 
 
 ### HTTPS
@@ -119,14 +119,14 @@ Transport security relies on cryptography:
 
 HTTPS ensures encrypting traffic between client and server, protecting data in transit.
 
-Images: server transfer diagram https://cs50.harvard.edu/web/notes/8/images/servers.png
+Images: server transfer diagram images/servers.png
 
 
 ### Databases
 - Never store plaintext passwords. Store password hashes (one-way). Django handles hashing for you.
 
-Bad table (plaintext passwords): https://cs50.harvard.edu/web/notes/8/images/passwords.png
-Good table (hashed passwords): https://cs50.harvard.edu/web/notes/8/images/hashes.png
+Bad table (plaintext passwords): images/passwords.png
+Good table (hashed passwords): images/hashes.png
 
 When designing flows (e.g., forgotten-password pages), consider information leakage (e.g., revealing whether an email is registered) and timing attacks.
 
